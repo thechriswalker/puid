@@ -6,7 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"gopkg.in/lucsky/cuid.v1"
+	lucsky_cuid_tip "github.com/lucsky/cuid"
+	lucsky_cuid_v1 "gopkg.in/lucsky/cuid.v1"
 )
 
 //
@@ -104,9 +105,14 @@ func Benchmark_PuidInCuidMode(b *testing.B) {
 }
 
 // just a comparison, we are faster, but not by much
-func Benchmark_LucskyCuid(b *testing.B) {
+func Benchmark_LucskyCuidV1(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		cuid.New()
+		lucsky_cuid_v1.New()
+	}
+}
+func Benchmark_LucskyCuidTip(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		lucsky_cuid_tip.New()
 	}
 }
 
