@@ -34,8 +34,10 @@ Event more reason to question this is that technically `Benchmark_PuidString` an
 ## install
 
 ```
-$ go get github.com/thechriswalker/puid
+$ go get github.com/thechriswalker/puid/...
 ```
+
+
 
 ## use as a tool
 
