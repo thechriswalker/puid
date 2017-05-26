@@ -1,4 +1,6 @@
-# `puid`, like [`cuid`](https://github.com/ericelliott/cuid)
+[![GoDoc](https://godoc.org/github.com/golang/gddo?status.svg)](http://godoc.org/github.com/thechriswalker/puid) [![Build Status](https://travis-ci.org/thechriswalker/puid.svg?branch=master)](https://travis-ci.org/thechriswalker/puid) 
+
+# `puid`, like [`cuid`](https://github.com/ericelliott/cuid) 
 
 **Please refer to the [main project site](http://usecuid.org) for the full rationale behind CUIDs.**
 
