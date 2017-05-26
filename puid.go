@@ -47,7 +47,20 @@ func (g *Generator) Bytes() []byte {
 	// also they were only 7 digits or les before: Mon Jun 26 1972 00:49:24 GMT+0100 (BST)
 	// so we can pretty much guarrantee that the length of an ID
 	// is prefix + 8 + 4*BLOCK
-	buff := make([]byte, 0, len(g.prefix)+8+4*BLOCK)
+	b := make([]byte, 0, len(g.prefix)+8+4*BLOCK)
+	return g.AppendBytes(b)
+}
+
+// Returns the raw byte slice of an puid
+func Bytes() []byte {
+	return defaultGenerator.Bytes()
+}
+
+// Append the bytes of a puid to the given buffer
+func (g *Generator) AppendBytes(buff []byte) []byte {
+	if buff == nil {
+		panic("AppendBytes() called with nil byte slice")
+	}
 	// set the prefix
 	buff = append(buff, g.prefix...)
 	// timestamp is not padded an 8 digits in all likelyhood (see previous comment)
@@ -61,9 +74,9 @@ func (g *Generator) Bytes() []byte {
 	return buff
 }
 
-// Returns the raw byte slice of an puid
-func Bytes() []byte {
-	return defaultGenerator.Bytes()
+// Append the bytes of a puid to the given buffer using the default generator
+func AppendBytes(b []byte) []byte {
+	return defaultGenerator.AppendBytes(b)
 }
 
 // Generate an puid as a string

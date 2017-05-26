@@ -65,6 +65,16 @@ func Test_Deterministic(t *testing.T) {
 	}
 }
 
+func Test_PanicIfAppendBytesCalledWithNilSlice(t *testing.T) {
+	defer func() {
+		if err := recover(); err == nil {
+			t.Error("we should have panic'd on a nil slice to AppendBytes")
+		}
+	}()
+	// should do the same if we do it when we create a brand new generator
+	AppendBytes(nil)
+}
+
 //
 //  Benchmarks
 //
@@ -77,6 +87,12 @@ func Benchmark_PuidString(b *testing.B) {
 func Benchmark_PuidBytes(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		Bytes()
+	}
+}
+func Benchmark_PuidAppendBytes(b *testing.B) {
+	buff := make([]byte, 9+4*BLOCK)
+	for i := 0; i < b.N; i++ {
+		buff = AppendBytes(buff[:])
 	}
 }
 
@@ -116,14 +132,14 @@ func Test_CUIDFormat(t *testing.T) {
 	}
 }
 
-func Test_CUIDCollisions(t *testing.T) {
-	ids := map[string]bool{}
+func Test_SmokeTestForCollisions(t *testing.T) {
+	ids := map[string]struct{}{}
 	for i := 0; i < 1e6; i++ {
 		id := New()
-		if ids[id] == true {
+		if _, collision := ids[id]; collision {
 			t.Errorf("Collision detected, at iteration %d", i)
 		}
-		ids[id] = true
+		ids[id] = struct{}{}
 	}
 }
 
