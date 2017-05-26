@@ -1,4 +1,4 @@
-[![GoDoc](https://godoc.org/github.com/golang/gddo?status.svg)](http://godoc.org/github.com/thechriswalker/puid) [![Build Status](https://travis-ci.org/thechriswalker/puid.svg?branch=master)](https://travis-ci.org/thechriswalker/puid) 
+[![GoDoc](https://godoc.org/github.com/thechriswalker/puid?status.svg)](http://godoc.org/github.com/thechriswalker/puid) [![Build Status](https://travis-ci.org/thechriswalker/puid.svg?branch=master)](https://travis-ci.org/thechriswalker/puid) 
 
 # `puid`, like [`cuid`](https://github.com/ericelliott/cuid) (Collision-Resistant IDs)
 
