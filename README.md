@@ -11,9 +11,11 @@ a visual thing.
 
 NB You can easily break the URL-Safety that CUIDs guarrantee by using stupid prefixes. I define this as user error, the puid library makes no attempt to stop you from doing this.
 
-Otherwise the library and implementation is compliant and marginally faster than the main Go implementation ([lucsky/cuid](https://github.com/lucsky/cuid)). Thats probably because I don't use exactly the same alogorithms for generating the data. But given that most of it is "random"
+Otherwise the library and implementation is compliant and marginally faster than the main Go implementation ([lucsky/cuid](https://github.com/lucsky/cuid)). Thats probably because I don't use exactly the same alogorithm for generating the fingerprint and random data. Now the random data is fine - as long as it is random enough, I cannot see how it matters. The fingerprint bit
+is different though, because maybe we want the `hostname` portion of the default fingerprint to match across languages? Personally, I don't really care about that.
 
-<details><summary>subjective go benchmark</summary>
+<details>
+    <summary>subjective `go test -bench=.` output</summary>
 
 #### Run on my laptop, pinch of salt necessary
 
