@@ -22,7 +22,7 @@ func hammertime() int64 {
 	return getTime().UnixNano() / int64(time.Millisecond)
 }
 
-// An puid generator
+// A puid generator
 type Generator struct {
 	fingerprint []byte
 	random      Random

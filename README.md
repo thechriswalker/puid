@@ -13,7 +13,7 @@ Otherwise the library and implementation is compliant and marginally faster than
 
 <details><summary>subjective go benchmark of this lib vs. [lucsky/cuid](https://github.com/lucsky/cuid)</summary>
 
-Run on my laptop, pinch of salt necessary
+#### Run on my laptop, pinch of salt necessary
 
 ```
 $ go test -run=XXX -bench=.
@@ -59,7 +59,7 @@ pj34am4ti0009carsm5pziq9m
 
 ## use as a lib
 
-docs [on godoc.org](https://godoc.org/thechriswalker/puid)
+docs [on godoc.org](https://godoc.org/github.com/thechriswalker/puid)
 
 or see [`cmd/puid/main.go`](cmd/puid/main.go)
 
