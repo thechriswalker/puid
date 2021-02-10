@@ -71,7 +71,7 @@ func Test_Strlen(t *testing.T) {
 	for _, test := range tests {
 		actual := strlen(test.n)
 		if actual != test.l {
-			t.Errorf("unexpected strlen for %s (%d), expected: %d, got %d", strconv.FormatInt(test.n, BASE), test.l, actual)
+			t.Errorf("unexpected strlen for %s (%d), expected: %d, got %d", strconv.FormatInt(test.n, BASE), text.n, test.l, actual)
 		}
 	}
 }
